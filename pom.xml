@@ -54,6 +54,7 @@
     <modules>
         <module>common</module>
         <module>examples</module>
+        <module>tp_info801</module>
     </modules>
 
     <dependencies>
