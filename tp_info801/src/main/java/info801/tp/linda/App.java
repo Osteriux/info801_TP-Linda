@@ -19,9 +19,9 @@ public class App {
 		espace.put(METHANE, (float) 5);
 		espace.put(MONOXIDE, (float) 10);
 
-		Capteur capteurEau = new Capteur(EAU, espace, 1.0f);
-		Capteur capteurMethane = new Capteur(METHANE, espace, 0.1f);
-		Capteur capteurMonoxide = new Capteur(MONOXIDE, espace, 0.2f);
+		Capteur capteurEau = new Capteur(EAU, espace, 50.0f);
+		Capteur capteurMethane = new Capteur(METHANE, espace, 5.0f);
+		Capteur capteurMonoxide = new Capteur(MONOXIDE, espace, 10.0f);
 
 		capteurEau.start();
 		capteurMethane.start();
