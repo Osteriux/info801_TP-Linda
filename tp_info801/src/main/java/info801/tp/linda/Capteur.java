@@ -30,7 +30,6 @@ public class Capteur extends Thread {
             try {
                 Thread.sleep(1000);
                 espace.get(new ActualField(nom), new FormalField(Float.class));
-                System.out.println("Capteur " + nom + " : " + value);
                 espace.put(nom, value);
             } catch (InterruptedException e) {
                 e.printStackTrace();

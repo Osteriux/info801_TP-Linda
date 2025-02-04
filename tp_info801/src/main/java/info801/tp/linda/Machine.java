@@ -27,7 +27,6 @@ public class Machine extends Thread {
                 Thread.sleep(1000);
                 Object[] q_machine = espace.query(new ActualField(nom), new FormalField(Boolean.class));
                 active = (Boolean) q_machine[1];
-                System.out.println("Machine " + nom + " : " + (active ? "ON" : "OFF"));
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }

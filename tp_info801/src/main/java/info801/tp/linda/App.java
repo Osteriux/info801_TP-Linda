@@ -36,6 +36,7 @@ public class App {
 		Machine machineVentilateur = new Machine(VENTILATEUR, espace);
 		
 		Simulateur simulateur = new Simulateur(capteurEau, capteurMethane, capteurMonoxide, machinePompe, machineVentilateur);
+		Logger logger = new Logger(capteurEau, capteurMethane, capteurMonoxide, machinePompe, machineVentilateur);
 
 		simulateur.start();
 		Controller controller = new Controller(espace);
@@ -46,6 +47,7 @@ public class App {
 		machinePompe.start();
 		machineVentilateur.start();
 		controller.start();
+		logger.start();
 
 		simulateur.join();
 		capteurEau.join();
@@ -54,6 +56,7 @@ public class App {
 		machinePompe.join();
 		machineVentilateur.join();
 		controller.join();
+		logger.join();
 	}
 
 }
