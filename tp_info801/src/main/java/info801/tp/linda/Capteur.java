@@ -16,6 +16,10 @@ public class Capteur extends Thread {
         this.value = value;
     }
 
+    public float getValue() {
+        return value;
+    }
+
     public void setValue(float value) {
         this.value = value;
     }

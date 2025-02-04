@@ -31,13 +31,17 @@ public class App {
 
 		Machine machinePompe = new Machine(POMPE, espace);
 		Machine machineVentilateur = new Machine(VENTILATEUR, espace);
+		
+		Simulateur simulateur = new Simulateur(capteurEau, capteurMethane, capteurMonoxide, machinePompe, machineVentilateur);
 
+		simulateur.start();
 		capteurEau.start();
 		capteurMethane.start();
 		capteurMonoxide.start();
 		machinePompe.start();
 		machineVentilateur.start();
 
+		simulateur.join();
 		capteurEau.join();
 		capteurMethane.join();
 		capteurMonoxide.join();
