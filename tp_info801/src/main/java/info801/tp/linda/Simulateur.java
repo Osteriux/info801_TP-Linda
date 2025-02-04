@@ -3,7 +3,7 @@ package info801.tp.linda;
 import java.util.Random;
 
 public class Simulateur extends Thread {
-    private static final int DELAY = 300;
+    private static final int DELAY = 500;
 
     private Capteur capteurEau;
     private Capteur capteurMethane;
@@ -25,8 +25,8 @@ public class Simulateur extends Thread {
             try {
                 Thread.sleep(DELAY);
                 Random r = new Random();
-                float min = 1.5f;
-                float max = 3.5f;
+                float min = 0.5f;
+                float max = 2.5f;
 
                 float simuEau = min + r.nextFloat() * (max - min);
                 float simuMethane = min + r.nextFloat() * (max - min);
@@ -40,9 +40,17 @@ public class Simulateur extends Thread {
                     simuMonoxide *= -1;
                 }
 
-                capteurEau.setValue(simuEau + capteurEau.getValue());
-                capteurMethane.setValue(simuMethane + capteurMethane.getValue());
-                capteurMonoxide.setValue(simuMonoxide + capteurMonoxide.getValue());
+                simuEau = simuEau + capteurEau.getValue();
+                simuMethane = simuMethane + capteurMethane.getValue();
+                simuMonoxide = simuMonoxide + capteurMethane.getValue();
+
+                if(simuEau < 0) simuEau = 0;
+                if(simuMethane < 0) simuMethane = 0;
+                if(simuMonoxide < 0) simuMonoxide = 0;
+
+                capteurEau.setValue(simuEau);
+                capteurMethane.setValue(simuMethane);
+                capteurMonoxide.setValue(simuMonoxide);
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
