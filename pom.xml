@@ -55,6 +55,7 @@
         <module>common</module>
         <module>examples</module>
         <module>tp_info801</module>
+        <module>drainage2</module>
     </modules>
 
     <dependencies>
