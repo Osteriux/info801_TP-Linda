@@ -26,7 +26,6 @@ public class App {
     public static final String DETECTION_EAU_H = "detection_eau_h";
     public static final String EAU_H_DETECTE = "eau_h_detecte";
 	public static final String DETECTION_EAU_B = "detection_eau_b";
-	public static final String EAU_B_DETECTE = "eau_b_detecte";
 	public static final String DETECTION_GAZ_H = "detection_gaz_h";
 	public static final String DETECTION_GAZ_B = "detection_gaz_b";
 

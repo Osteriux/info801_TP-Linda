@@ -23,7 +23,7 @@ public class H2OBas extends Thread {
                     espace.put(App.POMPE+"_desactive"); // On désactive la pompe
                     espace.put(App.VENTILATEUR+"_desactive"); // On désactive le ventilateur
                     espace.get(new ActualField(App.DETECTION_EAU_B)); // On retire la détection d'eau basse
-                    espace.put(App.EAU_B_DETECTE); // On signale la détection d'eau basse
+                    espace.put(App.DETECTION_EAU_H); // On détecte l'eau haute
                 }
                 sleep(1000);
             }catch (Exception e){
