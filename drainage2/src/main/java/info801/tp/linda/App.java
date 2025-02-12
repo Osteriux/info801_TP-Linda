@@ -27,9 +27,33 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         Space space = new SequentialSpace();
         
-        space.put("Hello World!");
-        Object[] tuple = space.get(new FormalField(String.class));				
-        System.out.println(tuple[0]);
-        
+        space.put(EAU, 150);
+		space.put(METHANE, 7);
+		space.put(MONOXYDE, 15);
+		space.put(DETECTION_EAU_H);
+
+		Machine pompe = new Machine(POMPE, space);
+		Machine ventilateur = new Machine(VENTILATEUR, space);
+		Capteur capteur_eau = new Capteur(EAU, space, 150);
+		Capteur capteur_methane = new Capteur(METHANE, space, 7);
+		Capteur capteur_monoxyde = new Capteur(MONOXYDE, space, 15);
+		H2O_haut h2o_haut = new H2O_haut(space);
+		H2O_bas h2o_bas = new H2O_bas(space);
+
+		pompe.start();
+		ventilateur.start();
+		capteur_eau.start();
+		capteur_methane.start();
+		capteur_monoxyde.start();
+		h2o_haut.start();
+		h2o_bas.start();
+
+		pompe.join();
+		ventilateur.join();
+		capteur_eau.join();
+		capteur_methane.join();
+		capteur_monoxyde.join();
+		h2o_haut.join();
+		h2o_bas.join();
     }
 }
