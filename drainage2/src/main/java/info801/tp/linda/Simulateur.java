@@ -28,15 +28,15 @@ public class Simulateur extends Thread {
                 float min = 0.5f;
                 float max = 2.5f;
 
-                float simuEau = (min + r.nextFloat() * (max - min)) *2;
-                float simuMethane = min + r.nextFloat() * (max - min);
-                float simuMonoxide = min + r.nextFloat() * (max - min);
+                float simuEau = (min + r.nextFloat() * (max - min)) *3;
+                float simuMethane = (min + r.nextFloat() * (max - min)) /4;
+                float simuMonoxide = (min + r.nextFloat() * (max - min)) /6;
 
                 if(pompe.isActive()){
-                    simuEau *= -1;
+                    simuEau *= -1.5;
                 }
                 if(ventilateur.isActive()){
-                    simuMethane *= -1;
+                    simuMethane *= -0.75;
                     simuMonoxide *= -1;
                 }
 

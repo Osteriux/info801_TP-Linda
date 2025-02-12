@@ -32,17 +32,17 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         Space space = new SequentialSpace();
         
-        space.put(EAU, (float) 150);
-		space.put(METHANE, (float) 7);
-		space.put(MONOXYDE, (float) 15);
+        space.put(EAU, (float) SEUIL_EAU_B);
+		space.put(METHANE, (float) SEUIL_METHANE_B/2);
+		space.put(MONOXYDE, (float) SEUIL_MONOXYDE_B/2);
 		space.put(DETECTION_EAU_H);
 
 		Commande commande = new Commande(space);
 		Machine pompe = new Machine(POMPE, space);
 		Machine ventilateur = new Machine(VENTILATEUR, space);
-		Capteur capteur_eau = new Capteur(EAU, space, 150);
-		Capteur capteur_methane = new Capteur(METHANE, space, 7);
-		Capteur capteur_monoxyde = new Capteur(MONOXYDE, space, 15);
+		Capteur capteur_eau = new Capteur(EAU, space, SEUIL_EAU_B);
+		Capteur capteur_methane = new Capteur(METHANE, space, SEUIL_METHANE_B/2);
+		Capteur capteur_monoxyde = new Capteur(MONOXYDE, space, SEUIL_MONOXYDE_B/2);
 		H2OHaut h2o_haut = new H2OHaut(space);
 		H2OBas h2o_bas = new H2OBas(space);
 		GazBas gaz_bas = new GazBas(space);
