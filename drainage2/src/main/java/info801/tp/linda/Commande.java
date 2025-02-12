@@ -21,8 +21,6 @@ public class Commande extends Thread {
                 Object[] q_monoxide = espace.query(new ActualField(App.MONOXYDE), new FormalField(Float.class));
                 float niveau_methane = (float) q_methane[1];
                 float niveau_monoxide = (float) q_monoxide[1];
-                System.out.println(niveau_methane);
-                System.out.println(niveau_monoxide);
 
                 if(niveau_methane < App.SEUIL_METHANE_H && niveau_monoxide < App.SEUIL_METHANE_H){
                     espace.put(App.POMPE_ACTIVE);
