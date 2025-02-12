@@ -38,6 +38,7 @@ public class App {
 		space.put(MONOXYDE, 15);
 		space.put(DETECTION_EAU_H);
 
+		Commande commande = new Commande(space);
 		Machine pompe = new Machine(POMPE, space);
 		Machine ventilateur = new Machine(VENTILATEUR, space);
 		Capteur capteur_eau = new Capteur(EAU, space, 150);
@@ -45,6 +46,7 @@ public class App {
 		Capteur capteur_monoxyde = new Capteur(MONOXYDE, space, 15);
 		H2OHaut h2o_haut = new H2OHaut(space);
 		H2OBas h2o_bas = new H2OBas(space);
+		Simulateur simulateur = new Simulateur(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
 
 		pompe.start();
 		ventilateur.start();
@@ -53,6 +55,8 @@ public class App {
 		capteur_monoxyde.start();
 		h2o_haut.start();
 		h2o_bas.start();
+		simulateur.start();
+		commande.start();
 
 		pompe.join();
 		ventilateur.join();
@@ -61,5 +65,7 @@ public class App {
 		capteur_monoxyde.join();
 		h2o_haut.join();
 		h2o_bas.join();
+		simulateur.join();
+		commande.join();
     }
 }
