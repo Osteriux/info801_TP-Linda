@@ -23,7 +23,7 @@ public class H2OHaut extends Thread {
                     espace.put(App.EAU_H_DETECTE); // On signale la détection d'eau haute
                     espace.get(new ActualField(App.DETECTION_EAU_H)); // On retire la détection d'eau haute
                 }
-                sleep(1000);
+                sleep(500);
             }catch (Exception e){
                 e.printStackTrace();
             }

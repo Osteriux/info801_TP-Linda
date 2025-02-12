@@ -32,9 +32,9 @@ public class App {
     public static void main(String[] args) throws InterruptedException {
         Space space = new SequentialSpace();
         
-        space.put(EAU, 150);
-		space.put(METHANE, 7);
-		space.put(MONOXYDE, 15);
+        space.put(EAU, (float) 150);
+		space.put(METHANE, (float) 7);
+		space.put(MONOXYDE, (float) 15);
 		space.put(DETECTION_EAU_H);
 
 		Commande commande = new Commande(space);
