@@ -30,10 +30,10 @@ public class Machine extends Thread {
         while (true) {
             try {
                 //active
-                espace.get(new ActualField(active_str), new FormalField(String.class));
+                espace.get(new ActualField(active_str));
                 active = true;
                 //desactive
-                espace.get(new ActualField(desactive_str), new FormalField(String.class));
+                espace.get(new ActualField(desactive_str));
                 active = false;
             } catch (InterruptedException e) {
                 e.printStackTrace();
