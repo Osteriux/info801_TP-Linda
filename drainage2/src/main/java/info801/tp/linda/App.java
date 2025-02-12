@@ -49,7 +49,7 @@ public class App {
 		GazBas gaz_bas = new GazBas(space);
 		SurveillanceGazHaut gaz_haut = new SurveillanceGazHaut(space);
 		Simulateur simulateur = new Simulateur(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
-		Logger logger = new Logger(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
+		Logger logger = new Logger(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur, space);
 
 		pompe.start();
 		ventilateur.start();
