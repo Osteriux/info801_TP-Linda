@@ -23,6 +23,8 @@ public class App {
     public static final String EAU_H_DETECTE = "eau_h_detecte";
 	public static final String DETECTION_EAU_B = "detection_eau_b";
 	public static final String EAU_B_DETECTE = "eau_b_detecte";
+	public static final String DETECTION_GAZ_H = "detection_gaz_h";
+	public static final String DETECTION_GAZ_B = "detection_gaz_b";
 
     public static void main(String[] args) throws InterruptedException {
         Space space = new SequentialSpace();
@@ -37,8 +39,8 @@ public class App {
 		Capteur capteur_eau = new Capteur(EAU, space, 150);
 		Capteur capteur_methane = new Capteur(METHANE, space, 7);
 		Capteur capteur_monoxyde = new Capteur(MONOXYDE, space, 15);
-		H2O_haut h2o_haut = new H2O_haut(space);
-		H2O_bas h2o_bas = new H2O_bas(space);
+		H2OHaut h2o_haut = new H2OHaut(space);
+		H2OBas h2o_bas = new H2OBas(space);
 
 		pompe.start();
 		ventilateur.start();

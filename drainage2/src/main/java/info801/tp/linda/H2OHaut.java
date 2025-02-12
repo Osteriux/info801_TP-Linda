@@ -4,11 +4,11 @@ import org.jspace.ActualField;
 import org.jspace.FormalField;
 import org.jspace.Space;
 
-public class H2O_haut extends Thread {
+public class H2OHaut extends Thread {
 
     private Space espace;
 
-    public H2O_haut(Space espace) {
+    public H2OHaut(Space espace) {
         super();
         this.espace = espace;
     }
