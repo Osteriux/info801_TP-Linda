@@ -47,6 +47,7 @@ public class App {
 		H2OHaut h2o_haut = new H2OHaut(space);
 		H2OBas h2o_bas = new H2OBas(space);
 		Simulateur simulateur = new Simulateur(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
+		Logger logger = new Logger(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
 
 		pompe.start();
 		ventilateur.start();
@@ -57,6 +58,7 @@ public class App {
 		h2o_bas.start();
 		simulateur.start();
 		commande.start();
+		logger.start();
 
 		pompe.join();
 		ventilateur.join();
@@ -67,5 +69,6 @@ public class App {
 		h2o_bas.join();
 		simulateur.join();
 		commande.join();
+		logger.join();
     }
 }
