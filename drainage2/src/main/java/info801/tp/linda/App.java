@@ -60,8 +60,8 @@ public class App {
 		h2o_bas.start();
 		gaz_bas.start();
 		gaz_haut.start();
-		simulateur.start();
 		commande.start();
+		simulateur.start();
 		logger.start();
 
 		pompe.join();

@@ -28,7 +28,7 @@ public class Capteur extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(1000);
+                Thread.sleep(App.DELAY);
                 espace.get(new ActualField(nom), new FormalField(Float.class));
                 espace.put(nom, value);
             } catch (InterruptedException e) {
