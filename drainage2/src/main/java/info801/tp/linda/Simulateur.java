@@ -10,12 +10,18 @@ public class Simulateur extends Thread {
     private Machine pompe;
     private Machine ventilateur;
 
+    private float modif = 1.0f;
+
     public Simulateur(Capteur capteurEau, Capteur capteurMethane, Capteur capteurMonoxide, Machine pompe, Machine ventilateur) {
         this.capteurEau = capteurEau;
         this.capteurMethane = capteurMethane;
         this.capteurMonoxide = capteurMonoxide;
         this.pompe = pompe;
         this.ventilateur = ventilateur;
+    }
+
+    public void setModif(float modif) {
+        this.modif = modif;
     }
 
     @Override
@@ -27,9 +33,9 @@ public class Simulateur extends Thread {
                 float min = 0.5f;
                 float max = 2.5f;
 
-                float simuEau = (min + r.nextFloat() * (max - min)) *3;
-                float simuMethane = (min + r.nextFloat() * (max - min)) /4;
-                float simuMonoxide = (min + r.nextFloat() * (max - min)) /6;
+                float simuEau = (min + r.nextFloat() * (max - min)) * 3 * modif;
+                float simuMethane = (min + r.nextFloat() * (max - min)) / 4 * modif;
+                float simuMonoxide = (min + r.nextFloat() * (max - min)) / 6 * modif;
 
                 if(pompe.isActive()){
                     simuEau *= -1.5;

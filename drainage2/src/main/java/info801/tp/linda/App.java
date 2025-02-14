@@ -3,8 +3,10 @@ package info801.tp.linda;
 import org.jspace.SequentialSpace;
 import org.jspace.Space;
 
+import info801.tp.linda.display.DrainageFrame;
+
 public class App {
-	public static final int DELAY = 500;
+	public static int DELAY = 500;
 
     public static final String EAU = "eau";
 	public static final String METHANE = "methane";
@@ -30,8 +32,21 @@ public class App {
 	public static final String DETECTION_GAZ_H = "detection_gaz_h";
 	public static final String DETECTION_GAZ_B = "detection_gaz_b";
 
+	private static Space space;
+	public static boolean use_gui = false;
+
     public static void main(String[] args) throws InterruptedException {
-        Space space = new SequentialSpace();
+		for (String string : args) {
+			if(string.equals("--gui")
+			|| string.equals("-g")
+			|| string.equals("--use-gui")
+			|| string.equals("--window")
+			|| string.equals("-w")) {
+				use_gui = true;
+			}
+		}
+
+        space = new SequentialSpace();
         
         space.put(EAU, (float) SEUIL_EAU_B);
 		space.put(METHANE, (float) SEUIL_METHANE_B/2);
@@ -49,8 +64,7 @@ public class App {
 		GazBas gaz_bas = new GazBas(space);
 		SurveillanceGazHaut gaz_haut = new SurveillanceGazHaut(space);
 		Simulateur simulateur = new Simulateur(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur);
-		Logger logger = new Logger(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur, space);
-
+		
 		pompe.start();
 		ventilateur.start();
 		capteur_eau.start();
@@ -62,7 +76,16 @@ public class App {
 		gaz_haut.start();
 		commande.start();
 		simulateur.start();
-		logger.start();
+		
+		if(use_gui){
+			DELAY = 5;
+			simulateur.setModif(0.01f);
+			new DrainageFrame(space, pompe, ventilateur);
+		}else{
+			Logger logger = new Logger(capteur_eau, capteur_methane, capteur_monoxyde, pompe, ventilateur, space);
+			logger.start();
+			logger.join();
+		}
 
 		pompe.join();
 		ventilateur.join();
@@ -75,6 +98,5 @@ public class App {
 		gaz_haut.join();
 		simulateur.join();
 		commande.join();
-		logger.join();
     }
 }

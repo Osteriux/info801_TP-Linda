@@ -47,7 +47,7 @@ public class Logger extends Thread{
                 Object[] deh = espace.queryp(new ActualField(App.DETECTION_EAU_H));
                 Object[] deb = espace.queryp(new ActualField(App.DETECTION_EAU_B));
                 if(deh!=null && deb!=null){
-                    throw new RuntimeException("Erreur de détection d'eau haute et basse simultanée");
+                    // throw new RuntimeException("Erreur de détection d'eau haute et basse simultanée");
                 }else if(deh!=null){
                     detectionEau = 1;
                 }else if(deb!=null){
@@ -58,7 +58,7 @@ public class Logger extends Thread{
                 Object[] dgh = espace.queryp(new ActualField(App.DETECTION_GAZ_H));
                 Object[] dgb = espace.queryp(new ActualField(App.DETECTION_GAZ_B));
                 if(dgh!=null && dgb!=null){
-                    throw new RuntimeException("Erreur de détection de gaz haute et basse simultanée");
+                    // throw new RuntimeException("Erreur de détection de gaz haute et basse simultanée");
                 }else if(dgh!=null){
                     detectionGaz = 1;
                 }else if(dgb!=null){
