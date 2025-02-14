@@ -4,7 +4,6 @@ import org.jspace.ActualField;
 import org.jspace.Space;
 
 public class Logger extends Thread{
-    private static final int DELAY = 500;
 
     private Capteur capteurEau;
     private Capteur capteurMethane;
@@ -44,7 +43,7 @@ public class Logger extends Thread{
     public void run() {
         while (true) {
             try {
-                Thread.sleep(DELAY);
+                Thread.sleep(App.DELAY);
                 Object[] deh = espace.queryp(new ActualField(App.DETECTION_EAU_H));
                 Object[] deb = espace.queryp(new ActualField(App.DETECTION_EAU_B));
                 if(deh!=null && deb!=null){

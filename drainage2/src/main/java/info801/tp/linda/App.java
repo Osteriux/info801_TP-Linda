@@ -1,10 +1,11 @@
 package info801.tp.linda;
 
-import org.jspace.FormalField;
 import org.jspace.SequentialSpace;
 import org.jspace.Space;
 
 public class App {
+	public static final int DELAY = 500;
+
     public static final String EAU = "eau";
 	public static final String METHANE = "methane";
 	public static final String MONOXYDE = "monoxyde";
@@ -18,10 +19,10 @@ public class App {
 
 	public static final float SEUIL_EAU_H = 200;
 	public static final float SEUIL_EAU_B = 100;
-	public static final float SEUIL_METHANE_H = 10;
-	public static final float SEUIL_METHANE_B = 5;
-	public static final float SEUIL_MONOXYDE_H = 20;
-	public static final float SEUIL_MONOXYDE_B = 10;
+	public static final float SEUIL_METHANE_H = 15;
+	public static final float SEUIL_METHANE_B = 10;
+	public static final float SEUIL_MONOXYDE_H = 30;
+	public static final float SEUIL_MONOXYDE_B = 20;
 
     public static final String DETECTION_EAU_H = "detection_eau_h";
     public static final String EAU_H_DETECTE = "eau_h_detecte";

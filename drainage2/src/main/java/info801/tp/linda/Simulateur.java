@@ -3,7 +3,6 @@ package info801.tp.linda;
 import java.util.Random;
 
 public class Simulateur extends Thread {
-    private static final int DELAY = 500;
 
     private Capteur capteurEau;
     private Capteur capteurMethane;
@@ -23,7 +22,7 @@ public class Simulateur extends Thread {
     public void run() {
         while (true) {
             try {
-                Thread.sleep(DELAY);
+                Thread.sleep(App.DELAY);
                 Random r = new Random();
                 float min = 0.5f;
                 float max = 2.5f;
@@ -36,8 +35,8 @@ public class Simulateur extends Thread {
                     simuEau *= -1.5;
                 }
                 if(ventilateur.isActive()){
-                    simuMethane *= -0.75;
-                    simuMonoxide *= -1;
+                    simuMethane *= -3;
+                    simuMonoxide *= -5;
                 }
 
                 simuEau = simuEau + capteurEau.getValue();

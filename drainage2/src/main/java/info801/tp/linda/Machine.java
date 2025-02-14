@@ -1,19 +1,16 @@
 package info801.tp.linda;
 
 import org.jspace.ActualField;
-import org.jspace.FormalField;
 import org.jspace.Space;
 
 public class Machine extends Thread {
 
-    private String nom;
     private Space espace;
     private boolean active;
     private String active_str;
     private String desactive_str;
 
     public Machine(String nom, Space espace) {
-        this.nom = nom;
         this.espace = espace;
         active = false;
         active_str = nom+"_active";

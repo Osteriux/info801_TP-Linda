@@ -24,7 +24,6 @@ public class SurveillanceGazHaut extends Thread {
                     espace.put(App.VENTILATEUR+"_active"); // On active le ventilateur
                     espace.get(new ActualField(App.DETECTION_GAZ_H)); // On retire la détection de gaz haute
                 }
-                sleep(1000);
             }catch (Exception e){
                 e.printStackTrace();
             }
