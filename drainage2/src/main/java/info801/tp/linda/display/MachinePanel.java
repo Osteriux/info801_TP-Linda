@@ -1,5 +1,6 @@
 package info801.tp.linda.display;
 
+import java.awt.Color;
 import java.awt.GridLayout;
 import javax.swing.Timer;
 
@@ -44,7 +45,19 @@ public class MachinePanel extends JPanel {
     private void update(){
         Timer timer = new Timer(App.DELAY, e -> {
             pompeVal.setText(pompe.isActive() ? "ON" : "OFF");
+            if(pompe.isActive()){
+                pompeVal.setForeground(Color.GREEN);
+            }else{
+                pompeVal.setForeground(Color.RED);
+            }
+
             ventilateurVal.setText(ventilateur.isActive() ? "ON" : "OFF");
+            if(ventilateur.isActive()){
+                ventilateurVal.setForeground(Color.GREEN);
+            }else{
+                ventilateurVal.setForeground(Color.RED);
+            }
+            
         });
         timer.start();
     }

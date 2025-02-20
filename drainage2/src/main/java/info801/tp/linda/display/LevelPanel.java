@@ -56,8 +56,32 @@ public class LevelPanel extends JPanel {
             Object[] q_monoxide = espace.query(new ActualField(App.MONOXYDE), new FormalField(Float.class));
 
             eauLevelVal.setText(String.valueOf((float) q_eau[1]));
+            if((float) q_eau[1] >= App.SEUIL_EAU_H){
+                eauLevelVal.setForeground(Color.RED);
+            }else if((float) q_eau[1] <= App.SEUIL_EAU_B){
+                eauLevelVal.setForeground(Color.GREEN);
+            }else{
+                eauLevelVal.setForeground(Color.ORANGE);
+            }
+
             methaneLevelVal.setText(String.valueOf((float) q_methane[1]));
+            if((float) q_methane[1] >= App.SEUIL_METHANE_H){
+                methaneLevelVal.setForeground(Color.RED);
+            }else if((float) q_methane[1] <= App.SEUIL_METHANE_B){
+                methaneLevelVal.setForeground(Color.GREEN);
+            }else{
+                methaneLevelVal.setForeground(Color.ORANGE);
+            }
+
             monoxideLevelVal.setText(String.valueOf((float) q_monoxide[1]));
+            if((float) q_monoxide[1] >= App.SEUIL_MONOXYDE_H){
+                monoxideLevelVal.setForeground(Color.RED);
+            }else if((float) q_monoxide[1] <= App.SEUIL_MONOXYDE_B){
+                monoxideLevelVal.setForeground(Color.GREEN);
+            }else{
+                monoxideLevelVal.setForeground(Color.ORANGE);
+            }
+
             } catch (InterruptedException ex) {
             ex.printStackTrace();
             }
