@@ -5,16 +5,14 @@ import org.jspace.Space;
 
 public class Machine extends Thread {
 
+    private String nom;
     private Space espace;
     private boolean active;
-    private String active_str;
-    private String desactive_str;
 
     public Machine(String nom, Space espace) {
         this.espace = espace;
         active = false;
-        active_str = nom+"_active";
-        desactive_str = nom+"_desactive";
+        this.nom = nom;
     }
 
 
@@ -27,10 +25,10 @@ public class Machine extends Thread {
         while (true) {
             try {
                 //active
-                espace.get(new ActualField(active_str));
+                espace.get(new ActualField(nom + App.ACTIVE));
                 active = true;
                 //desactive
-                espace.get(new ActualField(desactive_str));
+                espace.get(new ActualField(nom + App.DESACTIVE));
                 active = false;
             } catch (InterruptedException e) {
                 e.printStackTrace();

@@ -38,7 +38,7 @@ public class Simulateur extends Thread {
                 float simuMonoxide = (min + r.nextFloat() * (max - min)) / 6 * modif;
 
                 if(pompe.isActive()){
-                    simuEau *= -1.5;
+                    simuEau *= -2;
                 }
                 if(ventilateur.isActive()){
                     simuMethane *= -3;

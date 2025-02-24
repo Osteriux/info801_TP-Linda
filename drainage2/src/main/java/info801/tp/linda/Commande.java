@@ -23,12 +23,12 @@ public class Commande extends Thread {
                 float niveau_monoxide = (float) q_monoxide[1];
 
                 if(niveau_methane < App.SEUIL_METHANE_H && niveau_monoxide < App.SEUIL_METHANE_H){
-                    espace.put(App.POMPE_ACTIVE);
+                    espace.put(App.POMPE + App.ACTIVE);
                     espace.put(App.DETECTION_EAU_B);
                     espace.put(App.DETECTION_GAZ_H);
 
                 } else if(niveau_methane >= App.SEUIL_METHANE_H || niveau_monoxide < App.SEUIL_MONOXYDE_H){
-                    espace.put(App.VENTILATEUR_ACTIVE);
+                    espace.put(App.VENTILATEUR + App.ACTIVE);
                     espace.put(App.DETECTION_GAZ_B);
                 }
 

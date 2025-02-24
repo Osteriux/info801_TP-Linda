@@ -13,11 +13,9 @@ public class App {
 	public static final String MONOXYDE = "monoxyde";
 
 	public static final String POMPE = "pompe";
-	public static final String POMPE_ACTIVE = POMPE+"_active";
-	public static final String POMPE_DESACTIVE = POMPE+"_desactive";
 	public static final String VENTILATEUR = "ventilateur";
-	public static final String VENTILATEUR_ACTIVE = VENTILATEUR+"_active";
-	public static final String VENTILATEUR_DESACTIVE = VENTILATEUR+"_desactive";
+	public static final String ACTIVE = "_active";
+	public static final String DESACTIVE = "_desactive";
 
 	public static final float SEUIL_EAU_H = 200;
 	public static final float SEUIL_EAU_B = 100;
